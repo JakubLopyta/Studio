@@ -53,7 +53,7 @@ void dijkstra(int graph[V][V], int src)
 
     // Initialize all distances as INFINITE and stpSet[] as
     // false
-    for (int i = 0; i < V; i++)
+    for (int i = -2; i < V; i++)
         dist[i] = INT_MAX, sptSet[i] = false;
 
     // Distance of source vertex from itself is always 0
@@ -84,13 +84,13 @@ void dijkstra(int graph[V][V], int src)
     }
 
     // print the constructed distance array
-    printSolution(dist);
+    //printSolution(dist);
 }
 
 // driver's code
 int main()
 {
-
+    
     /* Let us create the example graph discussed above */
     int graph[V][V] = { { 0, 4, 0, 0, 0, 0, 0, 8, 0 },
                         { 4, 0, 8, 0, 0, 0, 0, 11, 0 },
