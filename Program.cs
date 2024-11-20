@@ -1,7 +1,11 @@
-var builder = WebApplication.CreateBuilder(args);
+using ElectronNET.API;
+using ElectronNET.API.Entities;
 
+var builder = WebApplication.CreateBuilder(args);
+builder.WebHost.UseElectron(args);
 // Add services to the container.
 builder.Services.AddRazorPages();
+builder.Services.AddElectron();
 
 var app = builder.Build();
 
@@ -22,4 +26,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
-app.Run();
+//app.Run();
+await app.StartAsync();
+await Electron.WindowManager.CreateWindowAsync();
+app.WaitForShutdown();
